@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  </head>
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Tic tac toe</h1>
+        <div id="lobby">
+          <h2>Users available:</h2>
+          <ul class="list-group" style="width:300px">
+          </ul>
+        </div>
+        <div class="hide" id="board">
+          <h2 id="waiting">Waiting for player...</h2>
+          <h2 class="hide">Score:</h2>
+
+          <div class="btn-group-vertical" role="group" aria-label="...">
+            <button id="0-0" type="button" class="btn btn-default">-</button>
+            <button id="1-0" type="button" class="btn btn-default">-</button>
+            <button id="2-0" type="button" class="btn btn-default">-</button>
+            
+          </div>
+          <div class="btn-group-vertical" role="group" aria-label="...">
+            <button id="0-1" type="button" class="btn btn-default">-</button>
+            <button id="1-1" type="button" class="btn btn-default">-</button>
+            <button id="2-1" type="button" class="btn btn-default">-</button>
+            
+          </div>
+          <div class="btn-group-vertical" role="group" aria-label="...">
+            <button id="0-2" type="button" class="btn btn-default">-</button>
+            <button id="1-2" type="button" class="btn btn-default">-</button>
+            <button id="2-2" type="button" class="btn btn-default">-</button>
+            
+          </div>            
+        </div>  
+        
+
+      </div> <!-- /container -->
+
+    </div>
+    <div class="container">
+      <ul class="chat">
+        
+      </ul>
+      <input type="text" class="form-control" placeholder="Escribe un mensaje" id="m">
+      <button type="button" class="btn btn-default" id="msg">Enviar mensaje</button>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>     
+    <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+    <script src="./js/gameLogic.js"></script>
+  </body>
+</html>
