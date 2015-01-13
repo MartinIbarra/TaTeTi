@@ -21,8 +21,8 @@ socket.on('connect', function(data) {
 socket.on('userDisconnected', function(data) {
     console.log('se desconecto el usuario ' + data.user);
     $('ul li').each(function(index, elem) {
-        if ($('li').html(elem) === data.user) {
-            $('#'+elem).remove();
+        if ($('li').prop('id') === data.user) {
+            $('li').remove();
         }
     });
 });
@@ -32,8 +32,7 @@ socket.on('playerReady', function(data) {
     console.log('esto se envio con playerReady: ' + data.players);
     data.players.forEach(function(elem) {
         if (elem !== playerID) {
-            playerListElement.append($(playerHTMLTemplate).prepend(elem));
-            $(playerHTMLTemplate).prop('id',elem);
+            playerListElement.append($(playerHTMLTemplate).prepend(elem).attr('id',elem));
         } else {
             //mostramos al jugador su numero de id (falta hacer!!!!)
         }
@@ -132,10 +131,10 @@ socket.on('move', function(data) {
 
 /////// UI events /////////
 playerListElement.on('click', 'button', function() {
-    console.log('Requesting to play with \'' + $(this)[0].next()); //$(this)[0].nextSibling.data + '\''
+    console.log('Requesting to play with \'' + $(this).next().text()); //$(this)[0].nextSibling.data + '\''
     // emit 'gameRequest' event with { player: $(this)[0].nextSibling.data }
     socket.emit('gameRequest', {
-        player: $(this).next()
+        player: $(this).next().text()
     });
     // hide lobby and show board
     lobbyElement.addClass('hide');

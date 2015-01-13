@@ -50,6 +50,7 @@ io.on('connection', function(socket) {
 
     socket.on('gameRequest', function(data) {
         // emit 'gameRequest' event to data.player with { player: socket.id }
+        console.log(data.player);
         players[data.player].emit('gameRequest', {
             player: socket.id
         });
