@@ -33,7 +33,7 @@ socket.on('playerReady', function(data) {
     data.players.forEach(function(elem) {
         if (elem !== playerID) {
             playerListElement.append($(playerHTMLTemplate).prepend(elem).attr('id',elem));
-        } else {
+        }else {
             //mostramos al jugador su numero de id (falta hacer!!!!)
         }
     });
@@ -131,10 +131,10 @@ socket.on('move', function(data) {
 
 /////// UI events /////////
 playerListElement.on('click', 'button', function() {
-    console.log('Requesting to play with \'' + $(this).next().text()); //$(this)[0].nextSibling.data + '\''
+    console.log('Requesting to play with \'' + $(this).parent().attr('id')); //$(this)[0].nextSibling.data + '\''
     // emit 'gameRequest' event with { player: $(this)[0].nextSibling.data }
     socket.emit('gameRequest', {
-        player: $(this).next().text()
+        player: $(this).parent().attr('id')
     });
     // hide lobby and show board
     lobbyElement.addClass('hide');
