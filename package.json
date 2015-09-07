@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node":"0.13.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MartinIbarra/TaTeTi.git"
